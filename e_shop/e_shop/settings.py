@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     
 ]
 
+
+
 # JWT settings
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
@@ -61,9 +63,9 @@ SIMPLE_JWT = {
 
 # REST settings
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ], 
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.DjangoModelPermissions',
+    # ), 
     
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -163,3 +165,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.CustomUser'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'fotimasayfullayeva6@gmail.com'
+EMAIL_HOST_PASSWORD = 'swfe lpfu lcyb ewsp'
